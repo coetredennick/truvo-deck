@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truvo Digital - Pitch Deck</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .slide {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            min-height: 100vh;
+            width: 100vw;
+        }
+
+        .slide-indicator {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .slide-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .slide-dot.active {
+            background: white;
+            transform: scale(1.3);
+        }
+
+        .slide-dot:hover {
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        @media print {
+            .slide {
+                page-break-after: always;
+            }
+            .slide-indicator {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide Indicators -->
+<div class="slide-indicator">
+    <div class="slide-dot active" onclick="scrollToSlide(0)"></div>
+    <div class="slide-dot" onclick="scrollToSlide(1)"></div>
+    <div class="slide-dot" onclick="scrollToSlide(2)"></div>
+    <div class="slide-dot" onclick="scrollToSlide(3)"></div>
+    <div class="slide-dot" onclick="scrollToSlide(4)"></div>
+    <div class="slide-dot" onclick="scrollToSlide(5)"></div>
+    <div class="slide-dot" onclick="scrollToSlide(6)"></div>
+</div>
+
+<!-- SLIDE 1: Hook/Problem -->
+<div class="slide w-full h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-12 relative overflow-hidden">
+    <!-- Background accent -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl opacity-20"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500 rounded-full filter blur-3xl opacity-20"></div>
+
+    <!-- Main content -->
+    <div class="relative z-10 max-w-5xl mx-auto text-center">
+        <!-- Hook - The Problem -->
+        <div class="mb-16">
+            <h1 class="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                You're Spending $2K+/Month<br />
+                on Marketing That <span class="text-red-400">Doesn't Work</span>
+            </h1>
+            <p class="text-2xl md:text-3xl text-gray-300 font-light">
+                Inconsistent leads. Wasted ad spend. No clear ROI.
+            </p>
+        </div>
+
+        <!-- Divider -->
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto mb-16"></div>
+
+        <!-- Solution - Brief -->
+        <div class="mb-12">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+                    Truvo
+                </span> Fixes That
+            </h2>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                We're entrepreneurs who build marketing systems that actually grow your business—
+                not just pretty campaigns that go nowhere.
+            </p>
+        </div>
+
+        <!-- Value props - quick hits -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6">
+                <div class="text-3xl mb-2">📊</div>
+                <div class="text-white font-semibold text-lg">Clear Metrics</div>
+                <div class="text-gray-400 text-sm mt-1">Know exactly what's working</div>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6">
+                <div class="text-3xl mb-2">🤖</div>
+                <div class="text-white font-semibold text-lg">AI-Powered</div>
+                <div class="text-gray-400 text-sm mt-1">Premium results, fair prices</div>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6">
+                <div class="text-3xl mb-2">🤝</div>
+                <div class="text-white font-semibold text-lg">True Partnership</div>
+                <div class="text-gray-400 text-sm mt-1">Weekly calls, real results</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logo/branding in corner -->
+    <div class="absolute top-8 left-8 flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 1024 1024" class="flex-shrink-0">
+            <rect width="1024" height="1024" rx="128" fill="#0F1C2E"/>
+            <g transform="translate(256,200)">
+                <polygon points="256,0 512,320 448,320 256,64 64,320 0,320" fill="#14B8A6"/>
+                <polygon points="256,120 464,400 416,400 256,192 96,400 48,400" fill="#67E8F9" opacity="0.85"/>
+                <polygon points="256,240 416,480 352,480 256,320 160,480 96,480" fill="#FFFFFF" opacity="0.5"/>
+            </g>
+            <circle cx="768" cy="256" r="18" fill="#67E8F9"/>
+            <circle cx="792" cy="238" r="10" fill="#14B8A6" opacity="0.9"/>
+        </svg>
+        <div>
+            <div class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+                TRUVO
+            </div>
+            <div class="text-xs text-gray-500 tracking-wider">DIGITAL</div>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 2: Why Truvo -->
+<div class="slide w-full h-screen bg-white flex items-center justify-center p-12 relative">
+    <!-- Logo/branding in corner -->
+    <div class="absolute top-8 left-8 flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 1024 1024" class="flex-shrink-0">
+            <rect width="1024" height="1024" rx="128" fill="#0F1C2E"/>
+            <g transform="translate(256,200)">
+                <polygon points="256,0 512,320 448,320 256,64 64,320 0,320" fill="#14B8A6"/>
+                <polygon points="256,120 464,400 416,400 256,192 96,400 48,400" fill="#67E8F9" opacity="0.85"/>
+                <polygon points="256,240 416,480 352,480 256,320 160,480 96,480" fill="#FFFFFF" opacity="0.5"/>
+            </g>
+            <circle cx="768" cy="256" r="18" fill="#67E8F9"/>
+            <circle cx="792" cy="238" r="10" fill="#14B8A6" opacity="0.9"/>
+        </svg>
+        <div>
+            <div class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
+                TRUVO
+            </div>
+            <div class="text-xs text-gray-400 tracking-wider">DIGITAL</div>
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto w-full">
+
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-4">
+                Why <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Truvo?</span>
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                We're not another marketing agency. We're entrepreneurs who've built real businesses and know what actually moves the needle.
+            </p>
+        </div>
+
+        <!-- Comparison Grid -->
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+
+            <!-- Traditional Agencies Column -->
+            <div class="bg-gray-50 rounded-xl p-8 border-2 border-gray-200">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-400 mb-2">Traditional Agencies</h3>
+                    <div class="w-16 h-1 bg-gray-300 mx-auto"></div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-red-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                        <p class="text-gray-700">Hand you a strategy deck and disappear</p>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-red-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                        <p class="text-gray-700">One-size-fits-all packages</p>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-red-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                        <p class="text-gray-700">Junior teams learning on your dime</p>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-red-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                        <p class="text-gray-700">Monthly reports you don't understand</p>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-red-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                        <p class="text-gray-700">Vanity metrics, unclear ROI</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Truvo Column -->
+            <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-8 border-2 border-blue-400 shadow-lg relative">
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-6 py-2 rounded-full text-sm font-bold">
+                    THE TRUVO DIFFERENCE
+                </div>
+
+                <div class="text-center mb-6 mt-2">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Truvo</h3>
+                    <div class="w-16 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto"></div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-green-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <p class="text-gray-900 font-medium">We architect, implement, and optimize in the trenches with you</p>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-green-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <p class="text-gray-900 font-medium">Custom-built systems for YOUR goals and budget</p>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-green-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <p class="text-gray-900 font-medium">Ex-entrepreneurs from cybersecurity, wealth mgmt, & real estate</p>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-green-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <p class="text-gray-900 font-medium">Weekly calls with clear data & next steps</p>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-green-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <p class="text-gray-900 font-medium">Focus on what matters: revenue, trust, and time saved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom tagline -->
+        <div class="text-center">
+            <p class="text-2xl font-semibold text-slate-700">
+                We treat your business like we're still running our own.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<!-- SLIDE 3: The Truvo System -->
+<div class="slide w-full min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 flex items-center justify-center p-12 relative">
+    <!-- Logo/branding in corner -->
+    <div class="absolute top-8 left-8 flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 1024 1024" class="flex-shrink-0">
+            <rect width="1024" height="1024" rx="128" fill="#0F1C2E"/>
+            <g transform="translate(256,200)">
+                <polygon points="256,0 512,320 448,320 256,64 64,320 0,320" fill="#14B8A6"/>
+                <polygon points="256,120 464,400 416,400 256,192 96,400 48,400" fill="#67E8F9" opacity="0.85"/>
+                <polygon points="256,240 416,480 352,480 256,320 160,480 96,480" fill="#FFFFFF" opacity="0.5"/>
+            </g>
+            <circle cx="768" cy="256" r="18" fill="#67E8F9"/>
+            <circle cx="792" cy="238" r="10" fill="#14B8A6" opacity="0.9"/>
+        </svg>
+        <div>
+            <div class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+                TRUVO
+            </div>
+            <div class="text-xs text-gray-500 tracking-wider">DIGITAL</div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto w-full">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">
+                The <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Truvo System</span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                Not random services. A complete growth engine that works together to turn strangers into customers.
+            </p>
+        </div>
+
+        <!-- Three-Tier System -->
+        <div class="space-y-6">
+
+            <!-- Tier 1: Foundation -->
+            <div class="bg-gradient-to-r from-blue-900/40 to-blue-800/40 backdrop-blur-sm border border-blue-500/30 rounded-xl p-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="bg-blue-500 text-white rounded-lg px-4 py-2 font-bold text-lg">01</div>
+                    <h3 class="text-2xl font-bold text-white">Your Business Foundation</h3>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-4 ml-16">
+                    <div class="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                        <svg class="w-8 h-8 text-blue-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h4 class="text-white font-semibold mb-1">High-Converting Website</h4>
+                        <p class="text-gray-400 text-sm">Professional design that turns visitors into leads</p>
+                    </div>
+
+                    <div class="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                        <svg class="w-8 h-8 text-blue-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                        </svg>
+                        <h4 class="text-white font-semibold mb-1">Custom CRM Setup</h4>
+                        <p class="text-gray-400 text-sm">Track every lead, never miss a follow-up</p>
+                    </div>
+
+                    <div class="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                        <svg class="w-8 h-8 text-blue-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        <h4 class="text-white font-semibold mb-1">24/7 AI Receptionist</h4>
+                        <p class="text-gray-400 text-sm">Never miss a call, even at 2am</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tier 2: Growth Engine -->
+            <div class="bg-gradient-to-r from-cyan-900/40 to-cyan-800/40 backdrop-blur-sm border border-cyan-500/30 rounded-xl p-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="bg-cyan-500 text-white rounded-lg px-4 py-2 font-bold text-lg">02</div>
+                    <h3 class="text-2xl font-bold text-white">Your Growth Engine</h3>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-4 ml-16">
+                    <div class="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                        <svg class="w-8 h-8 text-cyan-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <h4 class="text-white font-semibold mb-1">SEO & Content</h4>
+                        <p class="text-gray-400 text-sm">Be found when customers search</p>
+                    </div>
+
+                    <div class="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                        <svg class="w-8 h-8 text-cyan-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"></path>
+                        </svg>
+                        <h4 class="text-white font-semibold mb-1">Facebook & Social Ads</h4>
+                        <p class="text-gray-400 text-sm">Targeted reach to ideal customers</p>
+                    </div>
+
+                    <div class="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                        <svg class="w-8 h-8 text-cyan-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        <h4 class="text-white font-semibold mb-1">Multi-Channel Outreach</h4>
+                        <p class="text-gray-400 text-sm">Email, phone, SMS campaigns</p>
+                    </div>
+
+                    <div class="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                        <svg class="w-8 h-8 text-cyan-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                        <h4 class="text-white font-semibold mb-1">IP Tracking</h4>
+                        <p class="text-gray-400 text-sm">Know who's visiting your site</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tier 3: Optimization -->
+            <div class="bg-gradient-to-r from-purple-900/40 to-purple-800/40 backdrop-blur-sm border border-purple-500/30 rounded-xl p-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="bg-purple-500 text-white rounded-lg px-4 py-2 font-bold text-lg">03</div>
+                    <h3 class="text-2xl font-bold text-white">Continuous Optimization</h3>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-4 ml-16">
+                    <div class="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                        <svg class="w-8 h-8 text-purple-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                        <h4 class="text-white font-semibold mb-1">Weekly Performance Reviews</h4>
+                        <p class="text-gray-400 text-sm">Clear metrics on what's working and what's not</p>
+                    </div>
+
+                    <div class="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                        <svg class="w-8 h-8 text-purple-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                        <h4 class="text-white font-semibold mb-1">Data-Driven Adjustments</h4>
+                        <p class="text-gray-400 text-sm">We test, learn, and improve every single week</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="text-center mt-8">
+            <p class="text-xl text-gray-300 font-medium">
+                Every piece works together. That's how you get <span class="text-cyan-400 font-bold">real, compounding growth</span>.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<!-- SLIDE 4: Pricing -->
+<div class="slide w-full min-h-screen bg-white flex items-center justify-center p-8 relative">
+    <!-- Logo/branding in corner -->
+    <div class="absolute top-8 left-8 flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 1024 1024" class="flex-shrink-0">
+            <rect width="1024" height="1024" rx="128" fill="#0F1C2E"/>
+            <g transform="translate(256,200)">
+                <polygon points="256,0 512,320 448,320 256,64 64,320 0,320" fill="#14B8A6"/>
+                <polygon points="256,120 464,400 416,400 256,192 96,400 48,400" fill="#67E8F9" opacity="0.85"/>
+                <polygon points="256,240 416,480 352,480 256,320 160,480 96,480" fill="#FFFFFF" opacity="0.5"/>
+            </g>
+            <circle cx="768" cy="256" r="18" fill="#67E8F9"/>
+            <circle cx="792" cy="238" r="10" fill="#14B8A6" opacity="0.9"/>
+        </svg>
+        <div>
+            <div class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
+                TRUVO
+            </div>
+            <div class="text-xs text-gray-400 tracking-wider">DIGITAL</div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto w-full">
+
+        <!-- Header -->
+        <div class="text-center mb-10">
+            <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-4">
+                Investment <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Options</span>
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Choose what fits your goals and budget. We customize every package.
+            </p>
+        </div>
+
+        <!-- Website-Only Option - Separate Box -->
+        <div class="mb-8 max-w-4xl mx-auto">
+            <div class="bg-gradient-to-r from-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl p-6 shadow-sm">
+                <div class="flex items-center justify-between flex-wrap gap-4">
+                    <div class="flex-1 min-w-[250px]">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Professional Website Only</h3>
+                        <p class="text-gray-600">Perfect if you just need a great website without ongoing marketing</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-4xl font-bold text-slate-900">$1,500</div>
+                        <div class="text-gray-600 text-lg">one-time</div>
+                        <div class="text-sm text-gray-500 mt-1">+ $50/month hosting & maintenance</div>
+                    </div>
+                </div>
+                <div class="mt-4 grid md:grid-cols-4 gap-3">
+                    <div class="flex items-center gap-2 text-sm text-gray-700">
+                        <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Custom design</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-700">
+                        <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Mobile optimized</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-700">
+                        <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Up to 7 pages</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-700">
+                        <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Basic SEO setup</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center gap-3 text-gray-400 text-sm font-semibold">
+                <div class="h-px w-24 bg-gray-300"></div>
+                <span>OR</span>
+                <div class="h-px w-24 bg-gray-300"></div>
+            </div>
+        </div>
+
+        <!-- Monthly Growth Partnerships -->
+        <div class="mb-6">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-2">Monthly Growth Partnerships</h2>
+            <p class="text-center text-gray-600 mb-8">Full-service marketing with weekly optimization</p>
+        </div>
+
+        <!-- Three Package Cards -->
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <!-- Starter Package -->
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Starter</h3>
+                    <div class="text-4xl font-bold text-blue-600 mb-1">$500</div>
+                    <div class="text-gray-500 text-sm">per month</div>
+                    <div class="text-gray-400 text-xs mt-1">+ $500 one-time setup</div>
+                </div>
+
+                <div class="mb-6">
+                    <div class="bg-blue-50 rounded-lg px-3 py-2 text-center">
+                        <p class="text-sm font-semibold text-blue-900">Best for: New businesses</p>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-sm text-gray-700">Website optimization</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-sm text-gray-700">Google Business Profile setup</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-sm text-gray-700">Basic CRM setup</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-sm text-gray-700">1 ad campaign test</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-sm text-gray-700">Monthly performance review</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Growth Package - Featured -->
+            <div class="bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-blue-500 rounded-xl p-6 shadow-lg relative transform md:scale-105">
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-4 py-1 rounded-full text-sm font-bold flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                    </svg>
+                    MOST POPULAR
+                </div>
+
+                <div class="text-center mb-6 mt-2">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Growth</h3>
+                    <div class="text-4xl font-bold text-blue-600 mb-1">$750-$1K</div>
+                    <div class="text-gray-600 text-sm">per month</div>
+                    <div class="text-gray-400 text-xs mt-1">+ $500 one-time setup</div>
+                </div>
+
+                <div class="mb-6">
+                    <div class="bg-blue-100 rounded-lg px-3 py-2 text-center">
+                        <p class="text-sm font-semibold text-blue-900">Best for: Established businesses</p>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-sm text-gray-900 font-medium">Everything in Starter</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-sm text-gray-900 font-medium">Multi-channel ads (Facebook, Google)</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-sm text-gray-900 font-medium">SEO & content strategy</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-sm text-gray-900 font-medium">Email & SMS campaigns</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-sm text-gray-900 font-medium">Weekly calls & optimization</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scale Package -->
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Scale</h3>
+                    <div class="text-4xl font-bold text-blue-600 mb-1">$1.5K-$5K</div>
+                    <div class="text-gray-500 text-sm">per month</div>
+                    <div class="text-gray-400 text-xs mt-1">+ $500 one-time setup</div>
+                </div>
+
+                <div class="mb-6">
+                    <div class="bg-purple-50 rounded-lg px-3 py-2 text-center">
+                        <p class="text-sm font-semibold text-purple-900">Best for: Scaling businesses</p>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-sm text-gray-700">Everything in Growth</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-sm text-gray-700">24/7 AI receptionist</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-sm text-gray-700">Advanced CRM automations</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-sm text-gray-700">IP tracking & retargeting</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-sm text-gray-700">Cross-channel expansion</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Note -->
+        <div class="text-center mt-8">
+            <p class="text-lg text-gray-600">
+                Every package is customized to your goals and budget. <span class="font-semibold text-slate-900">Let's build what YOU need.</span>
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<!-- SLIDE 5: Social Proof -->
+<div class="slide w-full min-h-screen bg-gradient-to-br from-slate-50 to-gray-100 flex items-center justify-center p-12 relative">
+    <!-- Logo/branding in corner -->
+    <div class="absolute top-8 left-8 flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 1024 1024" class="flex-shrink-0">
+            <rect width="1024" height="1024" rx="128" fill="#0F1C2E"/>
+            <g transform="translate(256,200)">
+                <polygon points="256,0 512,320 448,320 256,64 64,320 0,320" fill="#14B8A6"/>
+                <polygon points="256,120 464,400 416,400 256,192 96,400 48,400" fill="#67E8F9" opacity="0.85"/>
+                <polygon points="256,240 416,480 352,480 256,320 160,480 96,480" fill="#FFFFFF" opacity="0.5"/>
+            </g>
+            <circle cx="768" cy="256" r="18" fill="#67E8F9"/>
+            <circle cx="792" cy="238" r="10" fill="#14B8A6" opacity="0.9"/>
+        </svg>
+        <div>
+            <div class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
+                TRUVO
+            </div>
+            <div class="text-xs text-gray-400 tracking-wider">DIGITAL</div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto w-full">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-4">
+                Real Clients. <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Real Results.</span>
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                We don't just talk strategy—we deliver measurable growth
+            </p>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-5xl mx-auto">
+            <div class="bg-white rounded-lg p-4 shadow-sm text-center border border-gray-200">
+                <div class="text-3xl font-bold text-blue-600">3x</div>
+                <div class="text-sm text-gray-600 mt-1">Avg. Lead Increase</div>
+            </div>
+            <div class="bg-white rounded-lg p-4 shadow-sm text-center border border-gray-200">
+                <div class="text-3xl font-bold text-green-600">$87K+</div>
+                <div class="text-sm text-gray-600 mt-1">Avg. Revenue Impact</div>
+            </div>
+            <div class="bg-white rounded-lg p-4 shadow-sm text-center border border-gray-200">
+                <div class="text-3xl font-bold text-purple-600">60 Days</div>
+                <div class="text-sm text-gray-600 mt-1">To First Results</div>
+            </div>
+            <div class="bg-white rounded-lg p-4 shadow-sm text-center border border-gray-200">
+                <div class="text-3xl font-bold text-cyan-600">10+ hrs</div>
+                <div class="text-sm text-gray-600 mt-1">Time Saved/Week</div>
+            </div>
+        </div>
+
+        <!-- Testimonial Cards -->
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+
+            <!-- Testimonial 1 -->
+            <div class="bg-white rounded-xl p-8 shadow-md border border-gray-200">
+                <div class="flex items-start gap-4 mb-6">
+                    <img src="data:image/jpeg;base64,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" class="rounded-full w-16 h-16 flex-shrink-0 object-cover" />
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900">Dominic</h3>
+                        <p class="text-gray-600">Vibrant Homes</p>
+                        <div class="flex gap-1 mt-1">
+                            <span class="text-yellow-400">★★★★★</span>
+                        </div>
+                    </div>
+                </div>
+
+                <blockquote class="text-gray-700 text-lg mb-6 italic">
+                    "Reliable leads, a site that converts, and instant follow-ups. Truvo made our marketing run like a business, not a gamble."
+                </blockquote>
+
+                <div class="border-t border-gray-200 pt-6">
+                    <div class="text-sm font-semibold text-gray-500 mb-3">RESULTS IN 60 DAYS:</div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <div class="flex items-center gap-2 text-green-600 font-bold text-xl">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                                +215%
+                            </div>
+                            <div class="text-sm text-gray-600">Lead Volume</div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 text-blue-600 font-bold text-xl">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                -43%
+                            </div>
+                            <div class="text-sm text-gray-600">Cost Per Lead</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="bg-white rounded-xl p-8 shadow-md border border-gray-200">
+                <div class="flex items-start gap-4 mb-6">
+                    <img src="data:image/jpeg;base64,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" alt="Ashton" class="rounded-full w-16 h-16 flex-shrink-0 object-cover" />
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900">Ashton</h3>
+                        <p class="text-gray-600">Rowe Environmental</p>
+                        <div class="flex gap-1 mt-1">
+                            <span class="text-yellow-400">★★★★★</span>
+                        </div>
+                    </div>
+                </div>
+
+                <blockquote class="text-gray-700 text-lg mb-6 italic">
+                    "They listened, built a plan around our goals, and executed fast—website, ads, and a CRM that our team actually uses. Weekly calls keep us focused, and we're seeing steadier inbound from the right clients."
+                </blockquote>
+
+                <div class="border-t border-gray-200 pt-6">
+                    <div class="text-sm font-semibold text-gray-500 mb-3">RESULTS IN 4 MONTHS:</div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <div class="flex items-center gap-2 text-green-600 font-bold text-xl">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                +$87K
+                            </div>
+                            <div class="text-sm text-gray-600">Revenue Increase</div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 text-purple-600 font-bold text-xl">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                10 hrs/wk
+                            </div>
+                            <div class="text-sm text-gray-600">Time Saved</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Mini Case Study Banner -->
+        <div class="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl p-8 text-white shadow-lg">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center gap-3 mb-4">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path>
+                    </svg>
+                    <h3 class="text-2xl font-bold">Why Our Clients Stay</h3>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div>
+                        <div class="text-3xl font-bold mb-1">95%</div>
+                        <div class="text-blue-100 text-sm">Client retention rate</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold mb-1">Weekly</div>
+                        <div class="text-blue-100 text-sm">Performance reviews with clear next steps</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold mb-1">100%</div>
+                        <div class="text-blue-100 text-sm">Transparent—you see every metric</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Quote -->
+        <div class="text-center mt-10">
+            <p class="text-xl text-gray-600 italic max-w-3xl mx-auto">
+                "Most agencies make promises. Truvo shows receipts."
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<!-- SLIDE 6: Team -->
+<div class="slide w-full min-h-screen bg-white flex items-center justify-center p-12 relative">
+    <!-- Logo/branding in corner -->
+    <div class="absolute top-8 left-8 flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 1024 1024" class="flex-shrink-0">
+            <rect width="1024" height="1024" rx="128" fill="#0F1C2E"/>
+            <g transform="translate(256,200)">
+                <polygon points="256,0 512,320 448,320 256,64 64,320 0,320" fill="#14B8A6"/>
+                <polygon points="256,120 464,400 416,400 256,192 96,400 48,400" fill="#67E8F9" opacity="0.85"/>
+                <polygon points="256,240 416,480 352,480 256,320 160,480 96,480" fill="#FFFFFF" opacity="0.5"/>
+            </g>
+            <circle cx="768" cy="256" r="18" fill="#67E8F9"/>
+            <circle cx="792" cy="238" r="10" fill="#14B8A6" opacity="0.9"/>
+        </svg>
+        <div>
+            <div class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
+                TRUVO
+            </div>
+            <div class="text-xs text-gray-400 tracking-wider">DIGITAL</div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto w-full">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-4">
+                Built by <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Entrepreneurs</span>
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                We're not career marketers. We're operators who've scaled real businesses and know what actually works.
+            </p>
+        </div>
+
+        <!-- Team Grid -->
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+
+            <!-- Nate -->
+            <div class="bg-gradient-to-br from-blue-50 to-white rounded-xl p-8 border-2 border-blue-200 hover:shadow-lg transition-shadow">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="bg-blue-600 rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900">Nate Wolf</h3>
+                        <p class="text-blue-600 font-semibold">Tech & Automation</p>
+                        <p class="text-sm text-gray-600">ex-Cybersecurity Engineer</p>
+                    </div>
+                </div>
+                <p class="text-gray-700 mb-4">
+                    Built enterprise security systems protecting billions in assets. Now builds marketing automation that actually works—no bloat, just results.
+                </p>
+                <div class="bg-blue-100 rounded-lg px-4 py-3">
+                    <p class="text-sm text-blue-900 font-medium">
+                        <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                        His superpower: Making complex AI tools simple and profitable for small businesses
+                    </p>
+                </div>
+            </div>
+
+            <!-- Coe -->
+            <div class="bg-gradient-to-br from-green-50 to-white rounded-xl p-8 border-2 border-green-200 hover:shadow-lg transition-shadow">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="bg-green-600 rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900">Coe Tredennick</h3>
+                        <p class="text-green-600 font-semibold">Client Success</p>
+                        <p class="text-sm text-gray-600">ex-Wealth Management</p>
+                    </div>
+                </div>
+                <p class="text-gray-700 mb-4">
+                    Managed $50M+ in client portfolios where every decision had to show ROI. Brings the same investment mindset to your marketing budget.
+                </p>
+                <div class="bg-green-100 rounded-lg px-4 py-3">
+                    <p class="text-sm text-green-900 font-medium">
+                        <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+                        </svg>
+                        His superpower: Translating data into actionable strategy you actually understand
+                    </p>
+                </div>
+            </div>
+
+            <!-- AJ -->
+            <div class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-8 border-2 border-purple-200 hover:shadow-lg transition-shadow">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="bg-purple-600 rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900">AJ Checkoff</h3>
+                        <p class="text-purple-600 font-semibold">Growth Strategy</p>
+                        <p class="text-sm text-gray-600">ex-Real Estate Broker</p>
+                    </div>
+                </div>
+                <p class="text-gray-700 mb-4">
+                    Closed $10M+ in real estate deals where every lead counts. Knows exactly how to turn traffic into revenue, not just clicks.
+                </p>
+                <div class="bg-purple-100 rounded-lg px-4 py-3">
+                    <p class="text-sm text-purple-900 font-medium">
+                        <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        His superpower: Conversion optimization—turning browsers into buyers
+                    </p>
+                </div>
+            </div>
+
+            <!-- Alec -->
+            <div class="bg-gradient-to-br from-cyan-50 to-white rounded-xl p-8 border-2 border-cyan-200 hover:shadow-lg transition-shadow">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="bg-cyan-600 rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900">Alec Boyd</h3>
+                        <p class="text-cyan-600 font-semibold">Operations & Systems</p>
+                        <p class="text-sm text-gray-600">Founded & Scaled Vestra</p>
+                    </div>
+                </div>
+                <p class="text-gray-700 mb-4">
+                    Built and scaled multiple companies from zero to six figures. Masters the unglamorous work that makes everything else possible.
+                </p>
+                <div class="bg-cyan-100 rounded-lg px-4 py-3">
+                    <p class="text-sm text-cyan-900 font-medium">
+                        <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        His superpower: Process design that scales without breaking
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="bg-gradient-to-r from-slate-900 to-slate-800 rounded-xl p-8 text-white">
+            <div class="max-w-4xl mx-auto text-center">
+                <h3 class="text-3xl font-bold mb-4">Why This Team Matters</h3>
+                <p class="text-lg text-gray-300 mb-6">
+                    We've been in your shoes. We've spent our own money on marketing that didn't work.
+                    We've dealt with agencies that disappeared after the proposal.
+                </p>
+                <p class="text-xl font-semibold text-white">
+                    That's why we built Truvo—the agency we wish we had when we were growing our businesses.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- SLIDE 7: CTA -->
+<div class="slide w-full min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center p-12 relative">
+    <!-- Logo/branding in corner -->
+    <div class="absolute top-8 left-8 flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 1024 1024" class="flex-shrink-0">
+            <rect width="1024" height="1024" rx="128" fill="#0F1C2E"/>
+            <g transform="translate(256,200)">
+                <polygon points="256,0 512,320 448,320 256,64 64,320 0,320" fill="#14B8A6"/>
+                <polygon points="256,120 464,400 416,400 256,192 96,400 48,400" fill="#67E8F9" opacity="0.85"/>
+                <polygon points="256,240 416,480 352,480 256,320 160,480 96,480" fill="#FFFFFF" opacity="0.5"/>
+            </g>
+            <circle cx="768" cy="256" r="18" fill="#67E8F9"/>
+            <circle cx="792" cy="238" r="10" fill="#14B8A6" opacity="0.9"/>
+        </svg>
+        <div>
+            <div class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+                TRUVO
+            </div>
+            <div class="text-xs text-gray-500 tracking-wider">DIGITAL</div>
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto w-full">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">
+                Let's Build Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Growth Plan</span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                No sales pitch. No pressure. Just an honest conversation about your goals and how we can help.
+            </p>
+        </div>
+
+        <!-- What Happens Next -->
+        <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-10">
+            <h3 class="text-2xl font-bold text-white mb-6 text-center">Here's What Happens Next</h3>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <div class="bg-blue-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-2xl">1</span>
+                    </div>
+                    <h4 class="text-white font-semibold text-lg mb-2">30-Minute Discovery Call</h4>
+                    <p class="text-gray-300 text-sm">
+                        We ask about your business, goals, budget, and current challenges. You ask us anything.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="bg-cyan-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-2xl">2</span>
+                    </div>
+                    <h4 class="text-white font-semibold text-lg mb-2">Custom Proposal</h4>
+                    <p class="text-gray-300 text-sm">
+                        We build a tailored plan with specific deliverables, timeline, and pricing for YOUR situation.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="bg-purple-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-2xl">3</span>
+                    </div>
+                    <h4 class="text-white font-semibold text-lg mb-2">You Decide</h4>
+                    <p class="text-gray-300 text-sm">
+                        If it makes sense, we move forward. If not, no hard feelings—you'll still get value from the conversation.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Options -->
+        <div class="grid md:grid-cols-2 gap-6 mb-10">
+
+            <!-- Primary CTA - Schedule Call -->
+            <div class="bg-gradient-to-br from-blue-600 to-cyan-500 rounded-xl p-8 shadow-xl transform hover:scale-105 transition-transform">
+                <svg class="w-12 h-12 text-white mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                <h3 class="text-2xl font-bold text-white mb-3">Book Your Discovery Call</h3>
+                <p class="text-blue-100 mb-6">Pick a time that works for you—usually available within 24-48 hours</p>
+                <div class="bg-white rounded-lg px-6 py-3 text-center">
+                    <a href="https://gettruvo.com" class="text-xl font-bold text-blue-600 hover:text-blue-700 flex items-center justify-center gap-2">
+                        Schedule Now
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                <p class="text-xs text-blue-200 mt-3 text-center">
+                    <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Most convenient option • No commitment required
+                </p>
+            </div>
+
+            <!-- Secondary - Contact Direct -->
+            <div class="bg-white/10 backdrop-blur-md border-2 border-white/30 rounded-xl p-8">
+                <svg class="w-12 h-12 text-cyan-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                </svg>
+                <h3 class="text-2xl font-bold text-white mb-3">Prefer to Reach Out?</h3>
+                <p class="text-gray-300 mb-6">Send us a message and we'll get back to you within a few hours</p>
+
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3 text-white">
+                        <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        <a href="mailto:contact@gettruvo.com" class="hover:text-cyan-400 transition-colors">
+                            contact@gettruvo.com
+                        </a>
+                    </div>
+
+                    <div class="flex items-center gap-3 text-white">
+                        <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        <a href="tel:7138555422" class="hover:text-cyan-400 transition-colors">
+                            (713) 855-5422
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Builders -->
+        <div class="grid md:grid-cols-3 gap-6 text-center">
+            <div class="text-white">
+                <svg class="w-8 h-8 text-green-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <p class="text-sm">No long-term contracts</p>
+            </div>
+            <div class="text-white">
+                <svg class="w-8 h-8 text-green-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <p class="text-sm">Month-to-month flexibility</p>
+            </div>
+            <div class="text-white">
+                <svg class="w-8 h-8 text-green-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <p class="text-sm">See results in 60 days or less</p>
+            </div>
+        </div>
+
+        <!-- Final Tagline -->
+        <div class="text-center mt-12">
+            <p class="text-2xl text-white font-semibold mb-2">
+                Stop guessing. Start growing.
+            </p>
+            <p class="text-gray-400">
+                gettruvo.com
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Slide navigation
+    function scrollToSlide(index) {
+        const slides = document.querySelectorAll('.slide');
+        slides[index].scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Update active dot indicator
+    function updateActiveDot() {
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slide-dot');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const index = Array.from(slides).indexOf(entry.target);
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        slides.forEach(slide => observer.observe(slide));
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        const slides = document.querySelectorAll('.slide');
+        const currentSlide = Array.from(slides).findIndex(slide => {
+            const rect = slide.getBoundingClientRect();
+            return rect.top >= 0 && rect.top < window.innerHeight / 2;
+        });
+
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
+            e.preventDefault();
+            if (currentSlide < slides.length - 1) {
+                scrollToSlide(currentSlide + 1);
+            }
+        } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+            e.preventDefault();
+            if (currentSlide > 0) {
+                scrollToSlide(currentSlide - 1);
+            }
+        } else if (e.key === 'Home') {
+            e.preventDefault();
+            scrollToSlide(0);
+        } else if (e.key === 'End') {
+            e.preventDefault();
+            scrollToSlide(slides.length - 1);
+        }
+    });
+
+    // Initialize
+    updateActiveDot();
+</script>
+
+</body>
+</html>
