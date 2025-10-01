@@ -69,11 +69,40 @@
         }
 
         @media print {
+            html {
+                scroll-snap-type: none;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
             .slide {
                 page-break-after: always;
+                page-break-inside: avoid;
+                min-height: 100vh;
+                height: 100vh;
+                width: 100vw;
+                display: flex;
+                position: relative;
+                margin: 0;
+                padding: 0;
             }
+
+            .slide:last-child {
+                page-break-after: auto;
+            }
+
             .slide-indicator {
-                display: none;
+                display: none !important;
+            }
+
+            /* Ensure backgrounds print */
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                color-adjust: exact;
             }
         }
     </style>
