@@ -18,7 +18,9 @@ const path = require('path');
     deviceScaleFactor: 2
   });
 
-  const htmlPath = path.join(__dirname, 'truvo-pitch-deck.html');
+  const htmlPath = path.join(__dirname, '..', 'src', 'templates', 'base-deck.html');
+  const outputPath = path.join(__dirname, '..', 'output', 'truvo-deck.pdf');
+
   console.log(`📄 Loading: ${htmlPath}`);
 
   await page.goto('file://' + htmlPath, {
@@ -32,18 +34,10 @@ const path = require('path');
 
   console.log('📝 Generating PDF...');
   await page.pdf({
-    path: 'truvo-deck.pdf',
-    width: '1920px',
-    height: '1080px',
+    path: outputPath,
     printBackground: true,
-    preferCSSPageSize: false,
-    displayHeaderFooter: false,
-    margin: {
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0
-    }
+    preferCSSPageSize: true,
+    displayHeaderFooter: false
   });
 
   await browser.close();

@@ -1,0 +1,27 @@
+{
+  "name": "truvo-deck",
+  "version": "1.0.0",
+  "description": "Truvo Digital pitch deck builder",
+  "main": "scripts/build-base.js",
+  "scripts": {
+    "build": "node scripts/build-base.js",
+    "build:base": "node scripts/build-base.js",
+    "build:rowe": "node scripts/build-client.js rowe-environmental",
+    "build:all": "npm run build:base && npm run build:rowe"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coetredennick/truvo-deck.git"
+  },
+  "keywords": ["pitch-deck", "pdf", "puppeteer"],
+  "author": "Truvo Digital",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/coetredennick/truvo-deck/issues"
+  },
+  "homepage": "https://github.com/coetredennick/truvo-deck#readme",
+  "devDependencies": {
+    "puppeteer": "^24.22.3"
+  }
+}

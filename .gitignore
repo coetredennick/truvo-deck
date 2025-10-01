@@ -1,1 +1,14 @@
-/node_modules
+# Dependencies
+node_modules/
+
+# Build outputs
+output/*.pdf
+clients/*/*.pdf
+
+# OS files
+.DS_Store
+*.bak
+
+# Editor files
+.vscode/
+.idea/

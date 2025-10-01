@@ -13,7 +13,7 @@ if (!clientName) {
 }
 
 (async () => {
-  const clientDir = path.join(__dirname, 'clients', clientName);
+  const clientDir = path.join(__dirname, '..', 'clients', clientName);
   const htmlPath = path.join(clientDir, `${clientName}-deck.html`);
   const outputPath = path.join(clientDir, `${clientName}-deck.pdf`);
 
@@ -52,17 +52,9 @@ if (!clientName) {
   console.log('📝 Generating PDF...');
   await page.pdf({
     path: outputPath,
-    width: '1920px',
-    height: '1080px',
     printBackground: true,
-    preferCSSPageSize: false,
-    displayHeaderFooter: false,
-    margin: {
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0
-    }
+    preferCSSPageSize: true,
+    displayHeaderFooter: false
   });
 
   await browser.close();
