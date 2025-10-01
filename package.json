@@ -1,0 +1,23 @@
+{
+  "name": "truvo-deck",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coetredennick/truvo-deck.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coetredennick/truvo-deck/issues"
+  },
+  "homepage": "https://github.com/coetredennick/truvo-deck#readme",
+  "description": "",
+  "dependencies": {
+    "puppeteer": "^24.22.3"
+  }
+}

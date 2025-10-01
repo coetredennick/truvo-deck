@@ -86,7 +86,6 @@ const TruvoSlide6 = () => {
               <div>
                 <h3 className="text-2xl font-bold text-slate-900">Alec Boyd</h3>
                 <p className="text-cyan-600 font-semibold">Operations & Systems</p>
-                <p className="text-sm text-gray-600">Founded & Scaled Vestra</p>
               </div>
             </div>
             <p className="text-gray-700 mb-4">
