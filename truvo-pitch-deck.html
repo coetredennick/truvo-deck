@@ -77,7 +77,6 @@
                 margin: 0;
                 padding: 0;
             }
-
             .slide {
                 page-break-after: always;
                 page-break-inside: avoid;
@@ -93,7 +92,6 @@
             .slide:last-child {
                 page-break-after: auto;
             }
-
             .slide-indicator {
                 display: none !important;
             }
@@ -525,21 +523,20 @@
             </p>
         </div>
 
-        <!-- Website-Only Option - Separate Box -->
-        <div class="mb-8 max-w-4xl mx-auto">
+        <!-- One-Time Options - Two Separate Boxes -->
+        <div class="mb-8 max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+            <!-- Website-Only Option -->
             <div class="bg-gradient-to-r from-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl p-6 shadow-sm">
-                <div class="flex items-center justify-between flex-wrap gap-4">
-                    <div class="flex-1 min-w-[250px]">
-                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Professional Website Only</h3>
-                        <p class="text-gray-600">Perfect if you just need a great website without ongoing marketing</p>
-                    </div>
-                    <div class="text-right">
-                        <div class="text-4xl font-bold text-slate-900">$1,500</div>
-                        <div class="text-gray-600 text-lg">one-time</div>
-                        <div class="text-sm text-gray-500 mt-1">+ $50/month hosting & maintenance</div>
-                    </div>
+                <div class="mb-4">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Professional Website Only</h3>
+                    <p class="text-gray-600">Perfect if you just need a great website without ongoing marketing</p>
                 </div>
-                <div class="mt-4 grid md:grid-cols-4 gap-3">
+                <div class="mb-4">
+                    <div class="text-4xl font-bold text-slate-900">$1,500</div>
+                    <div class="text-gray-600 text-lg">one-time</div>
+                    <div class="text-sm text-gray-500 mt-1">+ $50/month hosting & maintenance</div>
+                </div>
+                <div class="space-y-2">
                     <div class="flex items-center gap-2 text-sm text-gray-700">
                         <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -563,6 +560,45 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                         <span>Basic SEO setup</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Receptionist Option -->
+            <div class="bg-gradient-to-r from-blue-50 to-cyan-50 border-2 border-blue-400 rounded-xl p-6 shadow-sm">
+                <div class="mb-4">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">24/7 AI Receptionist</h3>
+                    <p class="text-gray-600">Tailored to your business needs and workflows</p>
+                </div>
+                <div class="mb-4">
+                    <div class="text-4xl font-bold text-slate-900">$2,000</div>
+                    <div class="text-gray-600 text-lg">one-time</div>
+                    <div class="text-sm text-gray-500 mt-1">+ $100/month maintenance</div>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2 text-sm text-gray-700">
+                        <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Answer calls 24/7</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-700">
+                        <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Schedule appointments</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-700">
+                        <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Qualify leads automatically</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-700">
+                        <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Custom to your business</span>
                     </div>
                 </div>
             </div>
@@ -786,26 +822,6 @@
             </p>
         </div>
 
-        <!-- Stats Bar -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-5xl mx-auto">
-            <div class="bg-white rounded-lg p-4 shadow-sm text-center border border-gray-200">
-                <div class="text-3xl font-bold text-blue-600">3x</div>
-                <div class="text-sm text-gray-600 mt-1">Avg. Lead Increase</div>
-            </div>
-            <div class="bg-white rounded-lg p-4 shadow-sm text-center border border-gray-200">
-                <div class="text-3xl font-bold text-green-600">$87K+</div>
-                <div class="text-sm text-gray-600 mt-1">Avg. Revenue Impact</div>
-            </div>
-            <div class="bg-white rounded-lg p-4 shadow-sm text-center border border-gray-200">
-                <div class="text-3xl font-bold text-purple-600">60 Days</div>
-                <div class="text-sm text-gray-600 mt-1">To First Results</div>
-            </div>
-            <div class="bg-white rounded-lg p-4 shadow-sm text-center border border-gray-200">
-                <div class="text-3xl font-bold text-cyan-600">10+ hrs</div>
-                <div class="text-sm text-gray-600 mt-1">Time Saved/Week</div>
-            </div>
-        </div>
-
         <!-- Testimonial Cards -->
         <div class="grid md:grid-cols-2 gap-8 mb-8">
 
@@ -827,27 +843,21 @@
                 </blockquote>
 
                 <div class="border-t border-gray-200 pt-6">
-                    <div class="text-sm font-semibold text-gray-500 mb-3">RESULTS IN 60 DAYS:</div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <div class="flex items-center gap-2 text-green-600 font-bold text-xl">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                                +215%
-                            </div>
-                            <div class="text-sm text-gray-600">Lead Volume</div>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-2 text-blue-600 font-bold text-xl">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                -43%
-                            </div>
-                            <div class="text-sm text-gray-600">Cost Per Lead</div>
-                        </div>
-                    </div>
+                    <div class="text-sm font-semibold text-gray-500 mb-3">WHAT WE DID:</div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-600 mt-1">•</span>
+                            <span>Built a beautiful, high-converting website</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-600 mt-1">•</span>
+                            <span>Filled his calendar with quality leads</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-600 mt-1">•</span>
+                            <span>Set up a custom CRM that runs on autopilot</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -869,27 +879,21 @@
                 </blockquote>
 
                 <div class="border-t border-gray-200 pt-6">
-                    <div class="text-sm font-semibold text-gray-500 mb-3">RESULTS IN 4 MONTHS:</div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <div class="flex items-center gap-2 text-green-600 font-bold text-xl">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                +$87K
-                            </div>
-                            <div class="text-sm text-gray-600">Revenue Increase</div>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-2 text-purple-600 font-bold text-xl">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                10 hrs/wk
-                            </div>
-                            <div class="text-sm text-gray-600">Time Saved</div>
-                        </div>
-                    </div>
+                    <div class="text-sm font-semibold text-gray-500 mb-3">WHAT WE DID:</div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start gap-2">
+                            <span class="text-green-600 mt-1">•</span>
+                            <span>Evolved from word-of-mouth to professional marketing</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-green-600 mt-1">•</span>
+                            <span>Boosted profit margins significantly</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-green-600 mt-1">•</span>
+                            <span>Built a loyal client base that keeps coming back</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -975,11 +979,10 @@
                     <div>
                         <h3 class="text-2xl font-bold text-slate-900">Nate Wolf</h3>
                         <p class="text-blue-600 font-semibold">Tech & Automation</p>
-                        <p class="text-sm text-gray-600">ex-Cybersecurity Engineer</p>
                     </div>
                 </div>
                 <p class="text-gray-700 mb-4">
-                    Built enterprise security systems protecting billions in assets. Now builds marketing automation that actually works—no bloat, just results.
+                    Built enterprise security systems for major organizations. Now builds marketing automation that actually works—no bloat, just results.
                 </p>
                 <div class="bg-blue-100 rounded-lg px-4 py-3">
                     <p class="text-sm text-blue-900 font-medium">
@@ -998,11 +1001,10 @@
                     <div>
                         <h3 class="text-2xl font-bold text-slate-900">Coe Tredennick</h3>
                         <p class="text-green-600 font-semibold">Client Success</p>
-                        <p class="text-sm text-gray-600">ex-Wealth Management</p>
                     </div>
                 </div>
                 <p class="text-gray-700 mb-4">
-                    Managed $50M+ in client portfolios where every decision had to show ROI. Brings the same investment mindset to your marketing budget.
+                    Managed outreach for a wealth management firm, building relationships with tech startups and connecting them with investors. Brings the same relationship-driven approach to growing your business.
                 </p>
                 <div class="bg-green-100 rounded-lg px-4 py-3">
                     <p class="text-sm text-green-900 font-medium">
@@ -1021,11 +1023,10 @@
                     <div>
                         <h3 class="text-2xl font-bold text-slate-900">AJ Checkoff</h3>
                         <p class="text-purple-600 font-semibold">Growth Strategy</p>
-                        <p class="text-sm text-gray-600">ex-Real Estate Broker</p>
                     </div>
                 </div>
                 <p class="text-gray-700 mb-4">
-                    Closed $10M+ in real estate deals where every lead counts. Knows exactly how to turn traffic into revenue, not just clicks.
+                    Closed deals in a competitive market where converting leads was everything. Now applies that same precision to turning your traffic into paying customers.
                 </p>
                 <div class="bg-purple-100 rounded-lg px-4 py-3">
                     <p class="text-sm text-purple-900 font-medium">
@@ -1044,11 +1045,10 @@
                     <div>
                         <h3 class="text-2xl font-bold text-slate-900">Alec Boyd</h3>
                         <p class="text-cyan-600 font-semibold">Operations & Systems</p>
-                        <p class="text-sm text-gray-600">Founded & Scaled Vestra</p>
                     </div>
                 </div>
                 <p class="text-gray-700 mb-4">
-                    Built and scaled multiple companies from zero to six figures. Masters the unglamorous work that makes everything else possible.
+                    Built and scaled multiple companies. Masters the unglamorous work that makes everything else possible.
                 </p>
                 <div class="bg-cyan-100 rounded-lg px-4 py-3">
                     <p class="text-sm text-cyan-900 font-medium">
